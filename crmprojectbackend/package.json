@@ -1,0 +1,27 @@
+{
+  "name": "crmprojectbackend",
+  "version": "1.0.0",
+  "description": "CRM MODULE 1 - LEAD TRACKING",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhebarp/crmtrackerproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhebarp/crmtrackerproject/issues"
+  },
+  "homepage": "https://github.com/dhebarp/crmtrackerproject#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.14",
+    "nodemon": "^2.0.1",
+    "uuid": "^3.3.3"
+  }
+}
