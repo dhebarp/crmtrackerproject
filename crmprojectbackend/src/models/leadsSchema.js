@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const leadsSchema = new Schema({
-    businessName: { type: String, required: true },
-    address: [{ street: String, Suburb: String, postCode: Number }],
-    phone: Number,
-    leadContact: [{ firstName: String, lastName: String }]
+    businessName: { type: String},
+    address: { street: String, suburb: String, postCode: String },
+    officeTel: String,
+    email: String,
+    leadContact: { firstName: String, lastName: String }
 });
 
 const LeadsBluePrint = mongoose.model('Leads', leadsSchema);

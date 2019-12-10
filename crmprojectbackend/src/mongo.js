@@ -8,5 +8,3 @@ db.once('open', function() {
     console.log("Mongoose online")
          });
 
-         module.exports = db;
-
