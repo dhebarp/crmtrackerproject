@@ -1,8 +1,15 @@
 require('dotenv').config();
 const express = require('express');
-const app = express();
 const leadRoutes = require('./routes/leadsRoutes');
+const bodyParser = require('body-parser');
+const app = express();
+const cors = require('cors');
 // const hotelRoutes = require('./routes/hotel.routes');
+
+
+app.use(bodyParser.json());
+app.use(cors());
+
 
 app.use('/api', leadRoutes); // api is the base and is cumulative ( so next ones will build on /api/blah blah)
 

@@ -22,11 +22,19 @@ res.status(200).json({msg: "LEADS API ENDPOINT"});
 const sd = new seeData.SeeData();
 
 router.get('/reset', async (req,res) => {
-     await Promise.all([LeadsBluePrint.create(sd.dbObjs)])
-     .catch(e => console.log(e))
+     await LeadsBluePrint.deleteMany({});
+     await LeadsBluePrint.create(sd.dbObjs)
+     .catch(e => console.log(e));
 
 res.status(200).json(sd.dbObjs);
 });
+
+router.get('/allleads', async(req, res) => {
+    await LeadsBluePrint.find((err, allData)=>{
+        res.send(allData);
+    })
+});
+
 
 router.post('/newlead', async (req, res) => {
     try {
