@@ -47,27 +47,32 @@ router.post('/newlead', async (req, res) => {
     }
 });
 
-router.delete('/lead/remove/:businessname', async (req,res)=> {
+router.delete('/lead/remove/:id', async (req,res)=> {
     try {
-        await LeadsBluePrint.deleteOne({businessName: req.params.businessname});
-        res.status(200).json({msg: 'Removed: ' + req.params.businessname});
+        await LeadsBluePrint.deleteOne({id: req.params.id});
+        res.status(200).json({msg: 'Removed: ' + req.params.id});
     }
     catch (e) {
         res.status(204).json({msg: 'no content'});
     }
 });
 
-router.put('/lead/update/:businessname', async (req, res) => {
+router.put('/lead/update/:id', async (req, res) => {
     try {
-        await LeadsBluePrint.findOneAndUpdate({businessName: req.params.businessname}, req.body, {new: true} );
-        res.status(200).json(req.params.businessname);
+        await LeadsBluePrint.findOneAndUpdate({id: req.params.id}, req.body, {new: true} );
+        res.status(200).json(req.params.id);
     }
     catch (e) {
         res.status(204).json({msg: 'no content'});
     }
 });
 
-router.get('/lead/:businessname', async (req,res) =>{
+router.get('/lead/find/:id', async (req,res) =>{
+    const businessName = await LeadsBluePrint.find({id: req.params.id});
+        res.send(businessName);
+});
+
+router.get('/lead/search/:businessname', async (req,res) =>{
     const businessName = await LeadsBluePrint.find({businessName: req.params.businessname});
         res.send(businessName);
 });
