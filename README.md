@@ -43,7 +43,7 @@ Implementation Period: 1 Week
 
 ## RUN PROJECT CONFIGURATIONS
 - VERSION CONTROL:
-    - NPM VERSION 12.12
+    - NODE VERSION 12.12
 
  - BACK END - 
  ```
