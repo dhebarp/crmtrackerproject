@@ -23,7 +23,7 @@ export class ViewLead extends React.Component {
     componentDidMount() {
         const id = this.props.match.params.id
 
-        fetch(`http://localhost:3000/api/lead/find/${id}`)
+        fetch(`http://localhost:4000/api/lead/find/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

@@ -40,4 +40,17 @@ Implementation Period: 1 Week
 * Reduce DRY code used from a lack of knowledge regarding destructed arrays.
 * Add Form error handling to limit false data being entered by the user.
 * Refactor project.
- 
+
+## RUN PROJECT CONFIGURATIONS
+- VERSION CONTROL:
+    - NPM VERSION 12.12
+
+ - BACK END - 
+ ```
+ NPX NODEMON
+```
+
+- FRONT END - 
+ ```
+ NPM RUN START
+```

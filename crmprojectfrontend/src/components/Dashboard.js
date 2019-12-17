@@ -25,7 +25,7 @@ export class Dashboard extends React.Component {
     }
 
     reloadLeads() {
-        fetch('http://localhost:3000/api/allleads')
+        fetch('http://localhost:4000/api/allleads')
             .then((res) => res.json())
             .then((data) => {
                 this.setState({
@@ -36,7 +36,7 @@ export class Dashboard extends React.Component {
 
     handleLeadDelete = (id) => {
 
-        fetch(`http://localhost:3000/api/lead/remove/${id}`, {
+        fetch(`http://localhost:4000/api/lead/remove/${id}`, {
             method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors' // no-cors, *cors, same-origin
         }) // body data type must match "Content-Type" header

@@ -65,7 +65,7 @@ export class LeadForm extends React.Component {
     updateLead() {
         const id = this.props.match.params.id
 
-        fetch(`http://localhost:3000/api/lead/update/${id}`, {
+        fetch(`http://localhost:4000/api/lead/update/${id}`, {
             method: 'PUT', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             headers: {
@@ -95,7 +95,7 @@ export class LeadForm extends React.Component {
     }
 
     createNewLead() {
-        fetch('http://localhost:3000/api/newlead', {
+        fetch('http://localhost:4000/api/newlead', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             headers: {
@@ -132,7 +132,7 @@ export class LeadForm extends React.Component {
                 //is loading true =  will give edit form data.
                 isLoading: true
             })
-            fetch(`http://localhost:3000/api/lead/find/${id}`)
+            fetch(`http://localhost:4000/api/lead/find/${id}`)
                 .then((res) => res.json())
                 .then((data) => {
                     this.setState({

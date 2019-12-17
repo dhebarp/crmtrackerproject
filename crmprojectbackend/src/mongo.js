@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb://localhost/${process.env.MONGO_COLLECTION}`, {useNewURLParser: true, useUnifiedTopology: true});
+mongoose.connect(`mongodb://localhost/${process.env.MONGO_COLLECTION}` || "development", {useNewURLParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
