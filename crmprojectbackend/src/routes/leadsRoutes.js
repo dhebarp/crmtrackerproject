@@ -49,7 +49,7 @@ router.post('/newlead', async (req, res) => {
 
 router.delete('/lead/remove/:id', async (req,res)=> {
     try {
-        await LeadsBluePrint.deleteOne({id: req.params.id});
+        await LeadsBluePrint.findByIdAndDelete(req.params.id);
         res.status(200).json({msg: 'Removed: ' + req.params.id});
     }
     catch (e) {
@@ -59,7 +59,7 @@ router.delete('/lead/remove/:id', async (req,res)=> {
 
 router.put('/lead/update/:id', async (req, res) => {
     try {
-        await LeadsBluePrint.findOneAndUpdate({id: req.params.id}, req.body, {new: true} );
+        await LeadsBluePrint.findByIdAndUpdate((req.params.id), req.body, {new: true} );
         res.status(200).json(req.params.id);
     }
     catch (e) {
@@ -68,7 +68,9 @@ router.put('/lead/update/:id', async (req, res) => {
 });
 
 router.get('/lead/find/:id', async (req,res) =>{
-    const businessName = await LeadsBluePrint.find({id: req.params.id});
+    console.log("ID TEXT: " , req.params.id)
+    const businessName = await LeadsBluePrint.findById(req.params.id);
+    console.log(businessName);
         res.send(businessName);
 });
 

@@ -24,7 +24,6 @@ class SeeData
             
             this.dbObjs = jsonObj.map(record => {
                 return {
-                    id: record.id,
                     businessName: record.businessName,
                     address: {
                         street: record.street,

@@ -5,8 +5,7 @@ export class LeadContact extends React.Component {
     render() {
         return (
             <React.Fragment>
-                    <p>First Name: {this.props.leadContact.firstName}</p>
-                    <p>Last Name: {this.props.leadContact.lastName}</p>
+                    {this.props.leadContact.firstName} {this.props.leadContact.lastName}
             </React.Fragment>
         )
     }

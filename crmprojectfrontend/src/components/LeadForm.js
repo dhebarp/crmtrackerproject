@@ -89,7 +89,7 @@ export class LeadForm extends React.Component {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                this.props.history.push('/');
+                this.props.history.push('/dashboard');
             })
             .catch((e) => console.log(e));
     }
@@ -119,7 +119,7 @@ export class LeadForm extends React.Component {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                this.props.history.push('/');
+                this.props.history.push('/dashboard');
             })
             .catch((e) => console.log(e));
     }
@@ -200,7 +200,7 @@ export class LeadForm extends React.Component {
                                 <input type="text" name="postCode" defaultValue={this.state.address.postCode} class="form-control" id="inputPostCode" placeholder="2536" onChange={this.handleChange} />
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </React.Fragment>

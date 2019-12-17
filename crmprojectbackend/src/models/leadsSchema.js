@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const leadsSchema = new Schema({
-    id: Number,
     businessName: { type: String},
     address: { street: String, suburb: String, postCode: String },
     officeTel: String,

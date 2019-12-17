@@ -13,12 +13,15 @@ export class Dashboard extends React.Component {
         return leads.map((lead) => {
             return (
                 //here we are mapping posts into list items and adding id to list, then the post has an on delete as well.
-                <li className={'list-group list-group-flush'} key={lead.id}>
-                    <Lead lead={lead} />
-                </li>
-                // onDelete={this.handlePostDelete} - this needs to be added back in to delete
+                
+                    <Lead lead={lead} onDelete={this.handleLeadDelete} />
+                
             )
         });
+    }
+
+    componentDidMount() {
+        this.reloadLeads();
     }
 
     reloadLeads() {
@@ -31,22 +34,38 @@ export class Dashboard extends React.Component {
             });
     }
 
-    componentDidMount() {
-        this.reloadLeads();
+    handleLeadDelete = (id) => {
+
+        fetch(`http://localhost:3000/api/lead/remove/${id}`, {
+            method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors' // no-cors, *cors, same-origin
+        }) // body data type must match "Content-Type" header
+            .then(() => {
+                this.reloadLeads();
+            })
+            .catch((e) => console.log(e));
     }
 
+    render() {
 
-render() {
+        return (
+            <div className={'container'}>
+            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col-md-2 col-lg-2 col-xl-2">Busines Name</th>
+                                        <th scope="col-md-2 col-lg-2 col-xl-2">Contact Name</th>
+                                        <th scope="col-md-4 col-lg-4 col-xl-4">Address</th>
+                                        <th scope="col-md-2 col-lg-2 col-xl-2">Phone Number</th>
+                                        <th scope="col-md-2 col-lg-2 col-xl-2">Email</th>
+                                    </tr>
+                                </thead>
 
-
-
-    return(
-        <div className={'container'} >
-        <ul className={'list-group list-group-flush'}>
-            {this.renderLeads(this.state.leads)}
-        </ul>
-    </div>
-    )
-}
-
+                                <tbody>
+                    {this.renderLeads(this.state.leads)}
+                    </tbody>
+                    </table>
+            </div>
+        )
+    }
 }

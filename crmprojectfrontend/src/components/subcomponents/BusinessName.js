@@ -5,7 +5,7 @@ export class BusinessName extends React.Component {
     render() {
         return (
             <React.Fragment>
-                    <p>Business Name: {this.props.businessName}</p>
+                    {this.props.businessName}
             </React.Fragment>
         )
     }
